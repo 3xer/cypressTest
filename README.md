@@ -1,7 +1,7 @@
 # cypressTest instructions
-> npm install -
-> npm start -
-> cypress:open -
-> välj chrome -
-> gå till cypress\e2e sample.cy.js -
-> klar!
+> npm install (dependencies) -
+> npm start (run program) -
+> cypress:open (open cypress) -
+> choose chrome (browser to run the test) -
+> browse to cypress\e2e sample.cy.js (find test file) -
+> Done!
