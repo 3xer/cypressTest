@@ -1,33 +1,7 @@
-import { MyAPI } from './src/script/myApi.js';
-import { displayAllRooms } from './src/script/createChallenge.js';
-import { threeHighestRanked } from './src/script/topThree.js';
-import { addEventsToLinks } from './src/script/addEventsToLinks.js';
-import { closeHamburger } from './src/script/addEventToCloseHamburger.js';
+import express from "express"
 
-class Init {
-    async init () {
-        const api = new MyAPI();
-        const data = await api.getData();
-        
-        // Renders hambuger button
-        const mainNav = document.querySelector('.main-nav');
-        const mainNavToggle = document.querySelector('.main-nav-toggle');
+const app = express();
+const PORT = process.env.PORT || 3080;
 
-        mainNavToggle.addEventListener('click', () => {
-            if (mainNav.classList.toggle('open')) {
-                document.body.style.overflow = "hidden";
-            } else {
-                document.body.style.overflow = "auto";
-            };
-        });
-        
-        closeHamburger();
-        addEventsToLinks();
-        
-        displayAllRooms(threeHighestRanked(data), "i");
-    };
-}
-
-
-const start = new Init();
-start.init();
+app.get('/', (req, res) => {res.send ('Yes, it works!');});
+app.listen(PORT, () => console.log(`Server listeningon port: ${PORT}`));
